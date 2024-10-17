@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 17:45:42 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 10:34:59 by ehenry           ###   ########.fr       */
+/*   Created: 2024/10/14 10:43:29 by ehenry            #+#    #+#             */
+/*   Updated: 2024/10/17 10:39:47 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_putchar(char c);
+
+void	ft_print_alphabet(void)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	c = 'a';
+	while (c <= 'z')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		ft_putchar (c);
+		c++;
 	}
-	return (0);
 }
-/*
-int	main(void)
-{
-	char str1 [] = "Hello World";
-	char str2 [] = "Hella World";
-	printf("output: %d\n", ft_strcmp(str1, str2));
-	return (0);
-}
-*/

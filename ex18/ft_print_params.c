@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehenry <ehenry@student42.luxembourg.lu>    +#+  +:+       +#+        */
+/*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:00:22 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/15 18:14:22 by ehenry           ###   ########.fr       */
+/*   Updated: 2024/10/17 10:35:00 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
+
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
@@ -19,12 +22,12 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write (1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
 
-int	main(int *ac, char *av)
+int	main(int ac, char **av)
 {
 	int	i;
 

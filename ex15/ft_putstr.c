@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehenry <ehenry@student42.luxembourg.lu>    +#+  +:+       +#+        */
+/*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:21:22 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/15 17:31:34 by ehenry           ###   ########.fr       */
+/*   Updated: 2024/10/17 10:46:38 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
@@ -19,14 +21,15 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write (1, &str[i], 1);
+		ft_putchar(str[i]);
 		i++;
 	}
 }
-
+/*
 int	main(void)
 {
 	char str[] = "Hello World";
 	ft_putstr(str);
 	return(0);
 }
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehenry <ehenry@student42.luxembourg.lu>    +#+  +:+       +#+        */
+/*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:52:23 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/15 18:58:54 by ehenry           ###   ########.fr       */
+/*   Updated: 2024/10/17 11:05:50 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*ft_range(int min, int max)
 	int	*res;
 	int	size;
 
-	if (max < min)
+	if (min >= max)
 		return (0);
 	size = max - min;
 	res = (int *)malloc(sizeof(int) * (size));
@@ -33,7 +33,7 @@ int	*ft_range(int min, int max)
 	}
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	int	min;
@@ -54,3 +54,4 @@ int	main(void)
 	}
 	return (0);
 }
+*/

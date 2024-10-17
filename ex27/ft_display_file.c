@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 17:45:42 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 10:34:59 by ehenry           ###   ########.fr       */
+/*   Created: 2024/10/17 14:49:25 by ehenry            #+#    #+#             */
+/*   Updated: 2024/10/17 16:08:32 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_disp_file(int f)
+{
+	char	buffer;
+
+	while (read(f, &buffer, 1) != 0)
+		write (1, &buffer, 1);
+}
+
+int	main(int ac, char **av)
 {
 	int	i;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	if (ac != 2)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		if (ac > 2)
+			write (2, "Too many arguments.\n", 20);
+		if (ac < 2)
+			write (2, "File name missing.\n", 19);
+		return (1);
 	}
+	i = open(av[1], O_RDONLY);
+	ft_disp_file(i);
+	close(i);
 	return (0);
 }
-/*
-int	main(void)
-{
-	char str1 [] = "Hello World";
-	char str2 [] = "Hella World";
-	printf("output: %d\n", ft_strcmp(str1, str2));
-	return (0);
-}
-*/

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 17:45:42 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 10:34:59 by ehenry           ###   ########.fr       */
+/*   Created: 2024/10/14 14:12:55 by ehenry            #+#    #+#             */
+/*   Updated: 2024/10/17 11:13:11 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	res;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	res = 1;
+	while (nb > 0)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		res *= nb;
+		nb--;
 	}
-	return (0);
+	if (nb < 0)
+		return (0);
+	return (res);
 }
 /*
 int	main(void)
 {
-	char str1 [] = "Hello World";
-	char str2 [] = "Hella World";
-	printf("output: %d\n", ft_strcmp(str1, str2));
+	printf("output: %d\n", ft_iterative_factorial(2));
 	return (0);
 }
 */

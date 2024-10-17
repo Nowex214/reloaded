@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 17:45:42 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 10:34:59 by ehenry           ###   ########.fr       */
+/*   Created: 2024/10/17 11:48:08 by ehenry            #+#    #+#             */
+/*   Updated: 2024/10/17 14:07:14 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] && s2[i])
+	while (i < length)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		f(tab[i]);
 		i++;
 	}
-	return (0);
 }
 /*
-int	main(void)
+void    ft_putnbr(int nb)
 {
-	char str1 [] = "Hello World";
-	char str2 [] = "Hella World";
-	printf("output: %d\n", ft_strcmp(str1, str2));
-	return (0);
+    printf("%d\n", nb);
+}
+
+int main(void)
+{
+    int tab[] = {1, 2, 3, 4, 5};
+    ft_foreach(tab, 5, &ft_putnbr);
+    return (0);
 }
 */

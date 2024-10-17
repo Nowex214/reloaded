@@ -1,52 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 18:39:00 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 10:35:02 by ehenry           ###   ########.fr       */
+/*   Created: 2024/10/17 13:03:03 by ehenry            #+#    #+#             */
+/*   Updated: 2024/10/17 13:51:57 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 
-char	*ft_strdup(char *src)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-	int		i;
-	int		len;
-	char	*dest;
+	int	i;
+	int	count;
+	int	len;
 
 	len = 0;
 	i = 0;
-	while (src[len])
+	count = 0;
+	while (tab[len])
 		len++;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
-	while (src[i])
+	while (i < len)
 	{
-		dest[i] = src[i];
+		if (f(tab[i]) == 1)
+			count++;
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (count);
 }
 /*
-int	main(void)
+int ft_its_a(char *str)
 {
-	char str1[] = "Hello World";
-	char str2 = ft_strdup(str1);
-	if (str1 == NULL)
-	{
-		printf(stderr"Fail\n");
-		return (1);
-	}
-	else
-		printf("output: %s\n", str2);
-	free(str2);
-	return (0);
+    return (str[0] == 'a');
+}
+
+int main(void)
+{
+    char *tab[] = {
+        "apple",
+        "banana",
+        "avocado",
+        "cherry",
+        "apricot",
+    };
+    int count = ft_count_if(tab, ft_its_a);
+
+    printf("Commence par 'a': %d\n", count);
+    return (0);
 }
 */
