@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ehenry <ehenry@student.42luxembourg.lu>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:49:25 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 16:08:32 by ehenry           ###   ########.fr       */
+/*   Updated: 2024/10/17 20:08:45 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
+#define BUFFER_SIZE 4096
 
 void	ft_disp_file(int f)
 {
-	char	buffer;
+	char	buffer[BUFFER_SIZE];
+	int	bytes_read;
 
-	while (read(f, &buffer, 1) != 0)
-		write (1, &buffer, 1);
+	while ((bytes_read = read(f, buffer, BUFFER_SIZE)) > 0)
+		write (1, buffer, bytes_read);
 }
 
 int	main(int ac, char **av)
 {
-	int	i;
+	int	fd;
 
 	if (ac != 2)
 	{
@@ -33,8 +35,13 @@ int	main(int ac, char **av)
 			write (2, "File name missing.\n", 19);
 		return (1);
 	}
-	i = open(av[1], O_RDONLY);
-	ft_disp_file(i);
-	close(i);
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+	{
+		write(2, "Cannot open file.\n", 18);
+		return (1);
+	}
+	ft_disp_file(fd);
+	close(fd);
 	return (0);
 }
