@@ -7,7 +7,7 @@ OBJS = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(GCC) $(CFLAGS) -o $(NAME) $(OBJS) -no-pie
+	$(GCC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(GCC) $(CFLAGS) -c $< -o $@

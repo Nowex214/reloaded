@@ -6,7 +6,7 @@
 /*   By: ehenry <ehenry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:03:03 by ehenry            #+#    #+#             */
-/*   Updated: 2024/10/17 13:51:57 by ehenry           ###   ########.fr       */
+/*   Updated: 2024/10/18 14:05:56 by ehenry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ int main(void)
         "apple",
         "banana",
         "avocado",
-        "cherry",
+        "alanty",
         "apricot",
+        NULL
     };
     int count = ft_count_if(tab, ft_its_a);
 

@@ -9,7 +9,7 @@ AR = ar rcs
 
 #rules
 all: ${NAME}
-$(NAME): ${OBJS}
+${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
 %.o: %.c
